@@ -1,0 +1,23 @@
+service: lambda
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: dev
+  region: ap-southeast-1
+
+
+functions:
+  hello:
+    handler: handler.hello
+    events:
+      - http:
+          path: /hello
+          method: get
+  add:
+    handler: handler.add
+    events:
+      - http:
+          path: /add
+          method: post
+
